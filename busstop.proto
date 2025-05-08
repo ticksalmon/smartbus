@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package busstop;
+
+service BusArrivalTracker {
+  rpc GetBusArrivals(BusStopRequest) returns (BusArrivalResponse);
+}
+
+service CrowdMonitor {
+  rpc StreamCrowd(CrowdRequest) returns (stream CrowdData);
+}
+
+service EnvironmentMonitor {
+  rpc StreamEnvironment(stream EnvRequest) returns (stream EnvData);
+}
+
+message BusStopRequest {
+  string stop_id = 1;
+}
+
+message BusArrivalResponse {
+  repeated string buses = 1;
+}
+
+message CrowdRequest {
+  string stop_id = 1;
+}
+
+message CrowdData {
+  int32 people_count = 1;
+  string timestamp = 2;
+}
+
+message EnvRequest {
+  string stop_id = 1;
+}
+
+message EnvData {
+  float temperature = 1;
+  float humidity = 2;
+  int32 aqi = 3;
+  string timestamp = 4;
+}
