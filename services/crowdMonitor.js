@@ -9,3 +9,18 @@ function StreamCrowd(call) {
   const stopId = call.request.stop_id;
   console.log(`[CrowdMonitor] Streaming for ${stopId}`);
   let count = 30;
+
+  const interval = setInterval(() => {
+    const crowdData = {
+      peopleCount: count + Math.floor(Math.random() * 10),
+      timestamp: new Date().toISOString(),
+    };
+    
+        call.write(crowdData);
+      }, 3000);
+    
+      call.on('end', () => {
+        clearInterval(interval);
+        call.end();
+      });
+    }
