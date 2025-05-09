@@ -2,39 +2,49 @@ syntax = "proto3";
 
 package busstop;
 
-service BusArrivalTracker {
-  rpc GetBusArrivals(BusStopRequest) returns (BusArrivalResponse);
+// this will track bus arrivals
+service BusArrivalTracker { 
+  rpc GetBusArrivals(BusStopRequest) returns (BusArrivalResponse); // RPC method (unary) that will take in the request from the bus stop and return the arrival time
 }
 
+// method to track the crowd levels
 service CrowdMonitor {
-  rpc StreamCrowd(CrowdRequest) returns (stream CrowdData);
+  rpc StreamCrowd(CrowdRequest) returns (stream CrowdData); 
 }
 
+// method to output the environment/weather
 service EnvironmentMonitor {
   rpc StreamEnvironment(stream EnvRequest) returns (stream EnvData);
 }
 
+//request message for identifying the bus stop
 message BusStopRequest {
   string stop_id = 1;
 }
 
+// reponse message with a list of buses
 message BusArrivalResponse {
   repeated string buses = 1;
 }
 
+// request message for the crowd
 message CrowdRequest {
   string stop_id = 1;
 }
 
+
+// response message with the crowd data
 message CrowdData {
   int32 people_count = 1;
   string timestamp = 2;
 }
 
+// request message for enviroment
 message EnvRequest {
   string stop_id = 1;
 }
 
+// response message with environment data
 message EnvData {
   float temperature = 1;
   float humidity = 2;
