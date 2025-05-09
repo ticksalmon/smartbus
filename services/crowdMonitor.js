@@ -23,4 +23,12 @@ function StreamCrowd(call) {
         clearInterval(interval);
         call.end();
       });
-    }
+}
+
+    const server = new grpc.Server();
+    server.addService(proto.CrowdMonitor.service, { StreamCrowd });
+    
+    server.bindAsync('0.0.0.0:50052', grpc.ServerCredentials.createInsecure(), () => {
+      console.log('CrowdMonitor running on port 50052');
+      server.start();
+    });
