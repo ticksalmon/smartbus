@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Bus Stop Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h1>Smart Bus Stop Monitor</h1>
+
+  <div class="container">
+    <div class="card">
+      <h2>Bus Arrivals</h2>
+      <ul id="bus-list"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Crowd Monitor</h2>
+      <p><span id="crowd-count">Loading...</span> people at the stop</p>
+    </div>
+
+    <div class="card">
+      <h2>Environmental Info</h2>
+      <p>Temperature: <span id="temp">--</span>°C</p>
+      <p>Humidity: <span id="humidity">--</span>%</p>
+      <p>AQI: <span id="aqi">--</span></p>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
