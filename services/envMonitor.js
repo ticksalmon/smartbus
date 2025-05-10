@@ -5,6 +5,7 @@ const protoLoader = require('@grpc/proto-loader');
 // sets the path to the proto file
 const PROTO_PATH = __dirname + '/../busstop.proto';
 //loads the busstop package from the definition in proto
+const packageDefinition = protoLoader.loadSync(PROTO_PATH);
 const proto = grpc.loadPackageDefinition(packageDefinition).busstop;
 
 // sets up method to respond with environemnt data when client calls
