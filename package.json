@@ -1,0 +1,22 @@
+{
+    "name": "smartbus",
+    "version": "1.0.0",
+    "description": "Smart Bus Stop Monitor",
+    "main": "client/app.js",
+    "scripts": {
+      "start-express": "node client/app.js",
+      "start-bus": "node services/busArrival.js",
+      "start-crowd": "node services/crowdMonitor.js",
+      "start-env": "node services/envMonitor.js",
+      "start-cli": "node client/gui.js"
+    },
+    "dependencies": {
+      "@grpc/grpc-js": "^1.8.14",
+      "@grpc/proto-loader": "^0.7.8",
+      "express": "^4.18.2",
+      "readline": "^1.3.0"
+    },
+    "author": "x24153303",
+    "license": "david"
+  }
+  
