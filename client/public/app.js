@@ -8,7 +8,7 @@ setInterval(async () => {
   // clears the current list
   busList.innerHTML = '';
 
-  // loops through the buses 
+  // loops through the buses and adds them as list items on the gui
   buses.forEach(bus => {
     const li = document.createElement('li');
     li.textContent = bus;
